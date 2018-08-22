@@ -4,31 +4,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Registration</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="/style.css" />
 </head>
 
+	<main class="container">
 	<body>
-	<form action="/regsummary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Coffee Express</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registrationform">Registration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pricing">Pricing</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+	<h1>Please fill out the form below...</h1>
+	<form action="/regsummary" method="post">
 			<p>
-			First Name: <input name="firstName" />
+			<label for="firstName">First Name: <input name="firstName" required minlength="2"/> </label>
 			</p>
 			<p>
-			Last Name: <input name="lastName" />
+			<label for="lastName">Last Name: <input name="lastName" /></label>
 			</p>
 			<p>
-			Email: <input name="email" />
+			<label for="email">Email: <input type="email" name="email" /></label>
 			</p>
 			<p>
-			Phone: <input name="phone" />
+			<label for="phone">Phone: <input name="phone" required /></label>
 			</p>
 			<p>
-			Enter a password: <input name="password" />
+			<label for="password">Enter a password: <input type="password" name="password" /></label>
 			</p>
 			<p>
-			<button type="submit">Submit!</button>
+			<button  type="submit" class="btn btn-outline-success">Submit!</button>
 			</p>
 		</form>
-
-
 	</body>
+	</main>
 </html>

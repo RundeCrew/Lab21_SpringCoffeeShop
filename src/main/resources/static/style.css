@@ -1,0 +1,25 @@
+body {
+  background-color: #17383f;
+  font-family: "Open Sans", sans-serif;
+  padding: 5px 25px;
+  font-size: 15px;
+  text-align: center;
+  margin: 0;
+  color: azure;
+}
+
+h1 {
+	color: "black";
+	font-family: "Great Vibes", cursive;
+	font-size: 60px;
+	padding: 10px
+}
+#coffee {
+	border: 8px solid black;
+  	padding: 6px;
+  	height: 300px;
+}
+
+.container {
+	padding: 12px;
+}
