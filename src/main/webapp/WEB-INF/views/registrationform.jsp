@@ -43,13 +43,13 @@
 			<label for="email">Email: <input type="email" name="email" /></label>
 			</p>
 			<p>
-			<label for="phone">Phone: <input name="phone" required /></label>
+			<label for="phone">Phone: <input name="phone" /></label>
 			</p>
 			<p>
 			<label for="password">Enter a password: <input type="password" name="password" /></label>
 			</p>
 			<p>
-			<button  type="submit" class="btn btn-outline-success">Submit!</button>
+			<button  onclick="return confirm('Are you sure you want to add this person?')" type="submit" class="btn btn-outline-success">Submit!</button>
 			</p>
 		</form>
 	</body>

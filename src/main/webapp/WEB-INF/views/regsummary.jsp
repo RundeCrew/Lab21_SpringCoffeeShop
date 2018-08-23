@@ -43,7 +43,7 @@
 	Your email is ${user.email} 
 	</p>
 	<p>
-	Your phone number is  ${user.phone} 
+	Your phone number is  ${user.phone}
 	</p>
 	<p>
 	Your Password is protected

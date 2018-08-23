@@ -39,8 +39,8 @@ public class CoffeeShopController {
 	public ModelAndView regsummary(
 			@RequestParam("firstName") String firstName, 
 			@RequestParam("lastName") String lastName,
-			@RequestParam("email") String email) {
-//			@RequestParam("phone") String phone
+			@RequestParam("email") String email,
+			@RequestParam("phone") int phone) {
 //			@RequestParam("password") String password) {
 //			@RequestParam("password2") String password2) {
 		
@@ -48,10 +48,10 @@ public class CoffeeShopController {
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
 			user.setEmail(email);
-//			user.setPhone(phone);
+			user.setPhone(phone);
 //			user.setPassword(password);
 //			user.setPassword2(password2);
-			
+			System.out.println(user);
 			ModelAndView mav = new ModelAndView("regsummary");
 			mav.addObject("user", user);
 			usersDaoJPA.create(user);
@@ -80,13 +80,14 @@ public class CoffeeShopController {
 	@RequestMapping("/add-for")
 	public ModelAndView showAddForm(@RequestParam("name") String name, 
 			@RequestParam("description") String description,
-			@RequestParam("quantity") int quantity) {
+			@RequestParam("quantity") int quantity, @RequestParam("price") double price) {
 		ModelAndView mav = new ModelAndView("redirect:/");
 		
 		Item item = new Item();
 		item.setName(name);
 		item.setDescription(description);
 		item.setQuantity(quantity);
+		item.setPrice(price);
 		itemsDaoJPA.create(item);
 		
 		
