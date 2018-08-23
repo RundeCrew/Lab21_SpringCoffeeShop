@@ -81,16 +81,16 @@ public class CoffeeShopController {
 	public ModelAndView showAddForm(@RequestParam("name") String name, 
 			@RequestParam("description") String description,
 			@RequestParam("quantity") int quantity) {
-		
+		ModelAndView mav = new ModelAndView("redirect:/");
 		
 		Item item = new Item();
 		item.setName(name);
 		item.setDescription(description);
 		item.setQuantity(quantity);
+		itemsDaoJPA.create(item);
 		
-		ModelAndView mav = new ModelAndView("redirect:/");
-		mav.addObject("item", item);
-		itemsDaoJPA.create(item);		
+		
+			
 		 return mav;
 	}
 	

@@ -60,7 +60,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/items/adds-items" class="btn btn-light btn-sm">Add</a>
+		<a href="/adds-items" class="btn btn-light btn-sm">Add</a>
 	</body>
 	</main>
 </html>

@@ -9,7 +9,7 @@
 <title>Add</title>
 </head>
 <body>
-  <form action="/add-form">
+  <form action="/add-for">
     <p>
     Name: <input name= "name" />
     </p>
