@@ -35,25 +35,32 @@
 </nav>
 		<p>
 		<h1> Welcome to Coffee Express</h1>
-		</p>
+	
 		
 		<table class="table">
+		<tbody>
 			<thead>
 				<tr>
-					<th>Item</th><th>Description</th><th>Quantity</th>
+					<th>Item</th><th>Description</th><th>Quantity</th><th>Action</th>
 				</tr>
 			</thead>
-			<tbody>
+			
 				<c:forEach var="item" items="${items}">
 				<tr>
-					<td><a href="/items/${item.id}">${item.name}</a></td>
-					<td>${item.description}</td>
-					<td>${item.quantity}</td>
+					<%-- <td><a href="/items/${item.id}">${item.name}</a></td>--%>
+							
+					
+					<td>${item.name}</td><td>${item.description}</td><td>${item.quantity}</td>
+					<td>
+								 <%--  // added/items to see if working --%>
+						<a href="/items/${ item.id }/edit" class="btn btn-light btn-sm">Edit</a>
+						<a href="/items/${ item.id }/delete" class="btn btn-light btn-sm">Delete</a>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		
+		<a href="/items/adds-items" class="btn btn-light btn-sm">Add</a>
 	</body>
 	</main>
 </html>

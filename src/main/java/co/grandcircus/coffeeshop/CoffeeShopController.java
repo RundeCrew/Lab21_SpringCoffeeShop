@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.coffeeshop.dao.ItemsDao;
-import co.grandcircus.coffeeshop.dao.UsersDao;
-import co.grandcircus.coffeeshop.entity.Item;
+import co.grandcircus.coffeeshop.dao.ItemsDaoJPA;
+import co.grandcircus.coffeeshop.dao.UsersDaoJPA;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CoffeeShopController {
 	
 	@Autowired
-	private ItemsDao itemsDao;
+	private ItemsDaoJPA itemsDaoJPA;
 	
 	@Autowired
-	private UsersDao usersDao;
+	private UsersDaoJPA usersDaoJPA;
 
 	
 	@RequestMapping("/")
 	public ModelAndView showHomePage() {
-			List<Item> item = itemsDao.findAll();
+			List<Item> item = itemsDaoJPA.findAll();
 			return new ModelAndView("index", "items", item);
 		}
 	
@@ -54,7 +54,7 @@ public class CoffeeShopController {
 			
 			ModelAndView mav = new ModelAndView("regsummary");
 			mav.addObject("user", user);
-			usersDao.create(user);
+			usersDaoJPA.create(user);
 			return mav;		
 	}
 	
@@ -63,6 +63,38 @@ public class CoffeeShopController {
 		ModelAndView mav = new ModelAndView("pricing");
 		return mav;
 	}
+	
+	@RequestMapping("/items/{id}/delete")
+	public ModelAndView delete(@PathVariable("id") int id) {
+		itemsDaoJPA.deleteById(id);
+		return new ModelAndView("redirect:/");
+	}
+	
+	
+	@RequestMapping("/adds-items")
+	public ModelAndView showAddItems() {
+		ModelAndView mav = new ModelAndView("adds-items"); 
+		return mav;
+	}
+	
+	@RequestMapping("/add-for")
+	public ModelAndView showAddForm(@RequestParam("name") String name, 
+			@RequestParam("description") String description,
+			@RequestParam("quantity") int quantity) {
+		
+		
+		Item item = new Item();
+		item.setName(name);
+		item.setDescription(description);
+		item.setQuantity(quantity);
+		
+		ModelAndView mav = new ModelAndView("redirect:/");
+		mav.addObject("item", item);
+		itemsDaoJPA.create(item);		
+		 return mav;
+	}
+	
+	
 	
 
 	
